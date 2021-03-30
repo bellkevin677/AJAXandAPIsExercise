@@ -66,3 +66,17 @@ async function tvMazeFunc(){
     }
 }
 tvMazeFunc();
+
+const body = document.querySelector(`body`);
+const img = document.createElement(`img`);
+body.append(img);
+
+async function pokeFunc(){
+    try {
+        const pokeData = await axios.get(`https://pokeapi.co/api/v2/pokemon/pikachu`);
+        img.src = pokeData.data.sprites.front_default;
+    } catch (err) {
+        console.log(err);
+    }
+}
+pokeFunc();
